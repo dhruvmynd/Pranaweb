@@ -1,0 +1,72 @@
+# supabase/config.toml
+[auth]
+enabled = true
+site_url = "https://breathe.vayu-prana.com"
+additional_redirect_urls = [
+  "https://breathe.vayu-prana.com/auth/callback",
+  "https://breathe.vayu-prana.com/auth/reset-password",
+  "https://breathe.vayu-prana.com/auth/callback?type=recovery",
+  "https://breathe.vayu-prana.com/auth/callback?type=signup",
+  "https://breathe.vayu-prana.com/auth/callback?type=email_change",
+  "http://localhost:5173/auth/callback",
+  "http://localhost:5173/auth/reset-password",
+  "http://localhost:5173/auth/callback?type=recovery",
+  "http://localhost:5173/auth/callback?type=signup",
+  "http://localhost:5173/auth/callback?type=email_change"
+]
+jwt_expiry = 3600
+enable_refresh_token_rotation = true
+refresh_token_reuse_interval = 10
+
+[auth.external.apple]
+enabled = true
+client_id = "com.prana-vayu.web.signin,com.vayuprana.app"
+team_id = "9MZKWHVB56"
+key_id = "NCFXW6DPM4"
+scope = "email name"
+redirect_uri = "https://breathe.vayu-prana.com/auth/callback"
+
+[auth.external.google]
+enabled = true
+client_id = "155665520591-kon4bb7tlf9or2du0rtm3hd1qo6dbv42.apps.googleusercontent.com"
+secret = "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"
+
+[auth.email]
+enable_signup = true
+double_confirm_changes = true
+enable_confirmations = false
+secure_password_change = false
+max_frequency = "1m0s"
+otp_length = 6
+otp_expiry = 86400
+provider = "smtp"
+sender_name = "Vayu"
+sender_email = "breath@vayu-prana.com"
+smtp_host = "smtp-relay.brevo.com"
+smtp_port = 587
+smtp_user = "854be4001@smtp-brevo.com"
+smtp_pass = "**********"
+smtp_max_frequency = "1m0s"
+
+[auth.mfa]
+max_enrolled_factors = 10
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+[auth.mfa.phone]
+enroll_enabled = false
+verify_enabled = false
+[auth.mfa.sms]
+enroll_enabled = false
+verify_enabled = false
+
+[storage]
+enabled = true
+
+[storage.avatars]
+enabled = true
+public = true
+
+[storage.blog]
+enabled = true
+public = true

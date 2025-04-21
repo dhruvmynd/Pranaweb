@@ -1,0 +1,25 @@
+.hardware-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reduce-motion {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+[style*="--reduce-motion='1'"] .animate-responsive {
+  animation-duration: 0s !important;
+  transition-duration: 0s !important;
+}
+
+.optimize-gpu {
+  transform: translate3d(0, 0, 0);
+}
+
+.optimize-paint {
+  contain: paint;
+}
